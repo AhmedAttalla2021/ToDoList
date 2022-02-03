@@ -19,5 +19,24 @@
       background-color: rgb(222, 223, 245);
      border-radius: 10px;
      margin-top: 20px;
+     border: 1px solid black;
+  }
+  .container .tasks .taskDiv {
+    width: 100%;
+    font-size: xx-large;
+    font-weight: bold;
+   
+    border: 1px solid black;
+  }
+  .container .tasks .taskDiv .span {
+    font-size: small;
+    font-weight: bold;
+    background-color: red;
+    padding: 2px;
+    border-radius: 20px;
+    color: white;
+    
+    cursor: pointer;
+    border: 1px solid black;
   }
   
