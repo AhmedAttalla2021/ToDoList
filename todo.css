@@ -19,16 +19,23 @@
       background-color: rgb(222, 223, 245);
      border-radius: 10px;
      margin-top: 20px;
-     border: 1px solid black;
+     padding: 10px;
   }
   .container .tasks .taskDiv {
-    width: 100%;
+    width: 90%;
     font-size: xx-large;
     font-weight: bold;
-   
-    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid gray;
+    border-radius: 20px;
+    background-color: white;
+    margin: 10px auto;
+    
+    
   }
-  .container .tasks .taskDiv .span {
+  /* .container .tasks .taskDiv .delBtn {
     font-size: small;
     font-weight: bold;
     background-color: red;
@@ -38,5 +45,5 @@
     
     cursor: pointer;
     border: 1px solid black;
-  }
+  } */
   
