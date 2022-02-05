@@ -5,6 +5,7 @@ let tasksDiv = document.getElementsByClassName("tasks")[0];
 
 let tasksArr = [];
 
+
 getDataFromLocalStorage()
 
 submitBtn.onclick = function() {
@@ -20,8 +21,9 @@ submitBtn.onclick = function() {
         tasksArr.push(task);
         myInput.value = "";
     }
-    createDivsToTasks(tasksArr)
     addDataToLocalStorage(tasksArr)
+    createDivsToTasks(tasksArr)
+    
 }
 
 // function to add tasks into the page
@@ -33,6 +35,7 @@ arr.forEach(task => {
     // tasksDiv.appendChild(document.createTextNode(task.title))
     let divOfTask = document.createElement("div");
     divOfTask.className="taskDiv";
+    divOfTask.setAttribute("data-id", task.id );
     let textDiv = document.createElement("div");
     textDiv.innerText = `${task.title}`
     textDiv.className = "textDiv col-9";
@@ -44,12 +47,7 @@ arr.forEach(task => {
     divOfTask.appendChild(delBtn);
     tasksDiv.appendChild(divOfTask);
 
-    delBtn.onclick = function (e) {
-
-        let newArr = tasksArr.filter(()=>{
-
-        })
-    }
+    
 
 });
 }
@@ -72,3 +70,20 @@ function getDataFromLocalStorage() {
     } 
 }
 
+// function to delete task
+
+tasksDiv.onclick = function (e) {
+
+    if(e.target.classList.contains("delBtn")) {
+        deleteTask(e.target.parentElement.getAttribute("data-id"))
+        e.target.parentElement.remove();
+    }
+    
+}
+
+function deleteTask(deletedTaskId) {
+ tasksArr = tasksArr.filter( task => task.id != deletedTaskId )
+ 
+addDataToLocalStorage(tasksArr)
+ 
+}

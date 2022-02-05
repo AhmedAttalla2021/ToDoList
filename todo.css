@@ -23,8 +23,8 @@
   }
   .container .tasks .taskDiv {
     width: 90%;
-    font-size: xx-large;
-    font-weight: bold;
+    font-size: x-large;
+    
     display: flex;
     justify-content: center;
     align-items: center;
