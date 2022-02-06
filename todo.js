@@ -8,6 +8,7 @@ let tasksArr = [];
 
 getDataFromLocalStorage()
 
+// handle add Btn click
 submitBtn.onclick = function() {
 
     if(myInput.value !== "") {
@@ -23,6 +24,24 @@ submitBtn.onclick = function() {
     }
     addDataToLocalStorage(tasksArr)
     createDivsToTasks(tasksArr)
+    
+}
+
+// handle delete Btn and toggle completed property
+tasksDiv.onclick = function (e) {
+
+    if(e.target.classList.contains("delBtn")) {
+        deleteTask(e.target.parentElement.getAttribute("data-id"))
+        e.target.parentElement.remove();
+    }
+
+    if (e.target.classList.contains("textDiv")) {
+        toggleCompleted(e.target.parentElement.getAttribute("data-id"))
+        e.target.parentElement.classList.contains("done")?
+        e.target.parentElement.classList.remove("done"):
+        e.target.parentElement.classList.add("done");
+    
+    }
     
 }
 
@@ -42,7 +61,7 @@ arr.forEach(task => {
     // divOfTask.appendChild(document.createTextNode(task.title));
     divOfTask.appendChild(textDiv);
     let delBtn = document.createElement("button");
-    delBtn.className = "delBtn btn btn-danger btn-sm col-1.5";
+    delBtn.className = "delBtn btn btn-danger btn-sm col-2";
     delBtn.appendChild(document.createTextNode("Delete"));
     divOfTask.appendChild(delBtn);
     tasksDiv.appendChild(divOfTask);
@@ -72,18 +91,24 @@ function getDataFromLocalStorage() {
 
 // function to delete task
 
-tasksDiv.onclick = function (e) {
-
-    if(e.target.classList.contains("delBtn")) {
-        deleteTask(e.target.parentElement.getAttribute("data-id"))
-        e.target.parentElement.remove();
-    }
-    
-}
-
 function deleteTask(deletedTaskId) {
  tasksArr = tasksArr.filter( task => task.id != deletedTaskId )
  
 addDataToLocalStorage(tasksArr)
  
 }
+
+
+// function for toggling completed property
+
+function toggleCompleted(id) {
+
+for(i=0; i<tasksArr.length; i++ ) {
+    if(tasksArr[i].id === id) {
+        tasksArr[i].completed == false ? tasksArr[i].completed == true : tasksArr[i].completed == false ;
+        
+    }
+    
+}
+
+} 

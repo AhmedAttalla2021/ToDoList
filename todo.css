@@ -24,7 +24,7 @@
   .container .tasks .taskDiv {
     width: 90%;
     font-size: x-large;
-    
+    padding: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,6 +35,20 @@
     
     
   }
+ @media all and (max-width: 800px) {
+  .container .tasks .taskDiv .delBtn {
+    
+    width: 45px;
+    height: 25px;
+    font-size: x-small;
+  }
+ }
+
+ .done {
+   opacity: 0.5;
+ }
+  
+
   /* .container .tasks .taskDiv .delBtn {
     font-size: small;
     font-weight: bold;
